@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { Button, Container, TextField, Box, Typography } from "@mui/material";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebaseConfig";
+import { auth } from "../../../firebaseConfig";
 import { useNavigate } from "react-router-dom";
 
 function SignIn() {
+    
     const [data, setData] = useState({});
 
     const handleInput = (event) => {
         let newInput = { [event.target.name]: event.target.value }
         setData({ ...data, ...newInput})
     }
-    
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {

@@ -4,14 +4,12 @@ import NavBar from './components/NavBar.js'
 import Home from './components/Home.js'
 import Profile from './pages/Profile';
 import SignUp from './components/Authentication/signupScreen';
-import SignIn from './components/Authentication/Signinscreen';
+import SignIn from './components/Authentication/SignIn/Signinscreen';
 import { useState, useEffect } from 'react';
 import { AuthProvider } from './AuthContext';
 import { auth } from './firebaseConfig';
 import { onAuthStateChanged } from 'firebase/auth';
 import SetupProfile from './pages/SetupProfile';
-import PostCard from './components/PostCard/PostCard';
-
 
 function App() {
 

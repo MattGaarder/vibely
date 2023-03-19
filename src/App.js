@@ -10,7 +10,7 @@ import { AuthProvider } from './AuthContext';
 import { auth } from './firebaseConfig';
 import { onAuthStateChanged } from 'firebase/auth';
 import SetupProfile from './pages/SetupProfile';
-import PostCard from './components/PostCard/PostCard';
+import Postcard from './components/PostCard/PostCard';
 
 
 function App() {
@@ -37,9 +37,10 @@ function App() {
           <Route path='/signin' element={<SignIn />} />
           <Route path='/setup' element={<SetupProfile />} />
         </Routes>
+          <Postcard />
       </div>
       </AuthProvider>
-      <PostCard />
+ 
     </Router>
   );
 }

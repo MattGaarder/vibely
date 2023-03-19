@@ -11,7 +11,7 @@ import Avatar from "@mui/material/Avatar";
 // import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 
-import testAvatar from "../../assets/test-avatar.jpg";
+// import testAvatar from "../../assets/test-avatar.jpg";
 import { CardActions, IconButton } from "@mui/material";
 import ThumbUpRoundedIcon from "@mui/icons-material/ThumbUpRounded";
 import ThumbDownAltRoundedIcon from "@mui/icons-material/ThumbDownAltRounded";
@@ -19,27 +19,39 @@ import ModeCommentRoundedIcon from "@mui/icons-material/ModeCommentRounded";
 
 import "./PostCard.css";
 
+
+import { useState } from "react"
+
+
+
+
+
 function Postcard() {
+  const [count, setCount] = useState(0);
+  const [caunt, setCaunt] = useState(0);
+
+  const handleLikeClick = () => {
+    setCount(count + 1);
+  };
+
+  const handleDislikeClick = () => {
+    setCaunt(caunt - 1)
+  }
+
   return (
     <>
-      <Container maxWidth="lg"  style={{ marginTop: "50px" }} className="main-container">
+      <Container maxWidth="lg" style={{ marginTop: "50px" }} className="main-container">
         <Card sx={{ maxWidth: 545 }}>
           <CardHeader
             avatar={
               <Avatar
-                src={testAvatar}
+                // src={testAvatar}
                 sx={{ width: 54, height: 54 }}
                 aria-label="recipe"
               >
                 R
               </Avatar>
             }
-            // }
-            // action={
-            //   <IconButton aria-label="settings">
-            //     <MoreVertIcon />
-            //   </IconButton>
-            // }
             title="@User-tag"
             subheader="timestamp from firebase"
           />
@@ -59,15 +71,15 @@ function Postcard() {
             </Typography>
 
             <CardActions className="card-action-container">
-                  <IconButton aria-label="like" className="thumb-up">
-                    <ThumbUpRoundedIcon />
-                  </IconButton>
-                  <IconButton className="thumb-down">
-                    <ThumbDownAltRoundedIcon />
-                  </IconButton>
-                  <IconButton className="comment">
-                    <ModeCommentRoundedIcon></ModeCommentRoundedIcon>
-                  </IconButton>
+              <IconButton aria-label="like" className="thumb-up" onClick={handleLikeClick}>
+                <ThumbUpRoundedIcon />{count}
+              </IconButton>
+              <IconButton aria-label="dislike" className="thumb-down" onClick={handleDislikeClick}>
+                <ThumbDownAltRoundedIcon />{caunt}
+              </IconButton>
+              <IconButton className="comment">
+                <ModeCommentRoundedIcon></ModeCommentRoundedIcon>
+              </IconButton>
             </CardActions>
           </CardContent>
         </Card>
@@ -75,5 +87,6 @@ function Postcard() {
     </>
   );
 }
+
 
 export default Postcard;
